@@ -2,7 +2,7 @@ import random
 import turtle
 
 
-open("export.geojson", mode='w')
+open("export.geojson", mode='r')
 
 def get_x_half(data):
     """ Rozdeli data na pul podle souradnice
