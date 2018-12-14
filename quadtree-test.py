@@ -2,29 +2,8 @@ import random
 import turtle
 
 
-open("quadtree.geojson", mode='w')
+open("export.geojson", mode='w')
 
-def generate_data(n=100):
-    data = []
-    for _ in range(n):
-        data.append((random.random(),random.random()))
-    return data
-
-def show_data(data):
-    turtle.speed(0)
-    turtle.hideturtle()
-    turtle.penup()
-    for pt in data:
-        turtle.setposition(pt[0]*300,pt[1]*300)
-        turtle.dot()
-# def get_x_half(data):
-#     """
-#     :param data:
-#     :return:
-#     """
-#     data = sorted(data, key=lambda x: x[0])
-#     half = len(data)//2
-#     return (data[half][0]+data[half+1][0])/2
 def get_x_half(data):
     """ Rozdeli data na pul podle souradnice
 
