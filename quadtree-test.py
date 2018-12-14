@@ -1,8 +1,10 @@
-import random
 import turtle
+import json
 
-
-open("export.geojson", mode='r')
+with open("import.geojson", encoding='utf-8') as f:
+    file = json.loads(f.read())
+    features = file['features']
+    print(features)
 
 def get_x_half(data):
     """ Rozdeli data na pul podle souradnice
@@ -18,7 +20,6 @@ def get_y_half(data):
     data = sorted(data, key=lambda y: y[1])
     half = len(data)//2
     return (data[half][1]+data[half-1][1])/2
-
 def bbox(data):
     minx = float("inf")
     miny = float("inf")
