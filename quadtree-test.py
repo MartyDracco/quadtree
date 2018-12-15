@@ -2,9 +2,9 @@ import turtle
 import json
 
 with open("import.geojson", encoding='utf-8') as f:
-    file = json.loads(f.read())
-    features = file['features']
-    print(features)
+    file = json.load(f)
+    data = file['features']
+    print(data)
 
 def get_x_half(data):
     """ Rozdeli data na pul podle souradnice
@@ -23,8 +23,8 @@ def get_y_half(data):
 def bbox(data):
     minx = float("inf")
     miny = float("inf")
-    maxx = float("inf")
-    maxy = float("inf")
+    maxx = float(data[0])
+    maxy = float(data[0])
 
     if p[0] > maxx:
         maxx = p[0]
@@ -74,11 +74,6 @@ def draw(data,x,y,dir):
 turtle.speed(0)
 
 
-
-
-
-data = generate_data()
-show_data(data)
 # Sem vlozte kod pro clusterovani
 x = get_x_half(data)
 y = get_y_half(data)
